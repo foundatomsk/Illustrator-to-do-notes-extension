@@ -1,0 +1,1107 @@
+/* ====== THEME ====== */
+:root{
+  --bg: #2b0f1f;          /* page background */
+  --panel: #3a1a2b;       /* container background */
+  --txt: #e9e1e6;         /* primary text */
+  --muted: #cdb7c3;       /* muted text */
+  --red: #ff4b5f;         /* coral red accents */
+  --green: #8ef300;       /* neon lime accents */
+  --line: #6e3c4f;        /* divider stroke */
+  --radius-xl: 40px;
+  --radius-lg: 28px;
+  --radius-pill: 999px;
+}
+
+/* ====== BASE ====== */
+*{ box-sizing: border-box; }
+html, body{ height:100%; }
+body{
+  margin:0;
+  background: radial-gradient(1200px 800px at 85% -10%, rgba(255,75,95,0.12), transparent 60%),
+              radial-gradient(1000px 700px at -10% 20%, rgba(142,243,0,0.08), transparent 60%),
+              var(--bg);
+  color: var(--txt);
+  font: 16px/1.45 "Inter", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  padding: 28px;
+}
+
+.frame{
+  width: min(980px, 96vw);
+  min-height: 86vh;
+  background: var(--panel);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius-xl);
+  padding: 40px 44px 56px;
+  position: relative;
+  box-shadow: 0 24px 60px rgba(0,0,0,.35), inset 0 0 0 1px rgba(255,255,255,0.03);
+}
+
+/* ====== HEADER ====== */
+.topbar{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  margin-bottom: 28px;
+}
+.topbar h1{
+  margin:0;
+  color: var(--red);
+  font-weight: 800;
+  letter-spacing:.06em;
+  font-size: clamp(28px, 5vw, 48px);
+}
+.brand{
+  color:#ff909e;
+  font-weight: 900;
+  letter-spacing:.12em;
+  text-transform: uppercase;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 12px;
+  padding: 8px 12px;
+  align-self: flex-start;
+}
+
+/* ====== PROJECTS STRIP ====== */
+.projects{
+  display:grid;
+  grid-template-columns: 1fr auto;
+  gap: 28px;
+  align-items:center;
+  margin-bottom: 28px;
+}
+.projects .left{
+  display:grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  max-width: 380px;
+}
+.pill-select,
+.pill-input{
+  display:flex;
+  align-items:center;
+  background: transparent;
+  border: 1.5px solid var(--red);
+  border-radius: var(--radius-pill);
+  height: 46px;
+  padding: 0 16px;
+}
+.pill-select select{
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: none;
+  border: none;
+  width:100%;
+  font: inherit;
+  color: var(--green);
+  padding-right: 28px;
+  outline:none;
+}
+.pill-select .caret{
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 10px solid var(--red);
+  margin-left: -24px;
+}
+.pill-input input{
+  background: transparent;
+  border: none;
+  outline: none;
+  width: 100%;
+  color: var(--green);
+  font: inherit;
+}
+.pill-input.wide{
+  border-width: 1.5px;
+  max-width: 560px;
+  height: 52px;
+  padding: 0 22px;
+}
+
+.icons{
+  display:flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items:center;
+  justify-content:center;
+}
+.icon{
+  width: 38px; height: 38px;
+  border: 1.5px solid var(--green);
+  background: transparent;
+  border-radius: 12px;
+  position: relative;
+}
+.icon.chevron::before{
+  content:"";
+  position:absolute; inset:0;
+  margin:auto;
+  width:0;height:0;
+  border-left: 10px solid transparent;
+  border-right:10px solid transparent;
+  border-top: 14px solid var(--red);
+  transform: translateY(2px);
+}
+.icon.oval::before{
+  content:"";
+  position:absolute; inset:0;
+  margin:auto;
+  width: 22px; height: 6px;
+  border: 1.5px solid var(--green);
+  border-radius: 999px;
+}
+.icon.plus::before,
+.icon.plus::after{
+  content:"";
+  position:absolute; inset:0;
+  margin:auto;
+  width: 18px; height: 2px; background: var(--green);
+}
+.icon.plus::after{ transform: rotate(90deg); }
+.icon.large{ width: 46px; height: 46px; border-radius: 14px; }
+
+/* ====== ADDER ====== */
+.adder{
+  display:flex;
+  align-items:center;
+  gap: 16px;
+  margin: 18px 0 18px;
+}
+
+/* ====== DIVIDERS ====== */
+.rule{
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--line), transparent);
+  margin: 18px 0 14px;
+}
+.rule.thin{ opacity:.7 }
+
+/* ====== LIST ====== */
+.list h2{
+  margin: 0 0 12px;
+  color: var(--red);
+  letter-spacing: .04em;
+  font-weight: 800;
+}
+
+.items{
+  list-style:none;
+  margin: 0;
+  padding: 8px 0 0;
+  display:flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.item{
+  display:grid;
+  grid-template-columns: 34px 1fr auto;
+  gap: 14px;
+  align-items:center;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.checkbox input{
+  position:absolute;
+  opacity:0;
+  pointer-events:none;
+}
+.checkbox .box{
+  width: 22px; height: 22px;
+  border: 1.5px solid var(--muted);
+  border-radius: 6px;
+  transform: rotate(18deg);
+  display:inline-block;
+  transition: all .2s ease;
+}
+.checkbox input:checked + .box{
+  background: var(--green);
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px rgba(142,243,0,.15);
+  transform: rotate(18deg) scale(1.02);
+}
+
+.text{ margin: 0; color: var(--txt); }
+
+.pill-delete{
+  border: 1.5px solid var(--red);
+  color: var(--red);
+  background: transparent;
+  height: 36px;
+  padding: 0 14px;
+  border-radius: var(--radius-pill);
+  font-weight: 700;
+}
+
+/* ====== RESPONSIVE ====== */
+@media (max-width: 700px){
+  .projects{
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .adder{
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .pill-input.wide{ max-width: none; width:100%; }
+  .items{ gap: 18px; }
+}/* ====== TABS ====== */
+.tab-nav {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 0;
+}
+
+.tab-btn {
+    background: transparent;
+    border: none;
+    color: var(--muted);
+    font: inherit;
+    font-weight: 700;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 18px;
+    position: relative;
+    padding-bottom: 12px;
+}
+
+.tab-btn.active {
+    color: var(--txt);
+}
+
+.tab-btn.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--red);
+    border-radius: 4px 4px 0 0;
+}
+
+/* ====== NOTES ====== */
+.notes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.note-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.note-content {
+    background: transparent;
+    border: none;
+    color: var(--txt);
+    font: inherit;
+    font-size: 14px;
+    resize: none;
+    width: 100%;
+    min-height: 80px;
+    outline: none;
+    line-height: 1.5;
+}
+
+.note-tools {
+    display: flex;
+    justify-content: flex-end;
+    opacity: 0.5;
+    transition: opacity 0.2s;
+}
+
+.note-card:hover .note-tools {
+    opacity: 1;
+}
+
+.icon-text {
+    background: none;
+    border: none;
+    color: var(--red);
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 700;
+    cursor: pointer;
+    padding: 4px 8px;
+}
+
+.btn-primary {
+    background: var(--green);
+    color: #000;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 99px;
+    font-weight: 700;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}/* ====== LOGO ====== */
+.brand-logo {
+    height: 48px;
+    width: auto;
+    object-fit: contain;
+}/* ====== GLOBAL PROJECTS ====== */
+.projects.global-projects {
+    margin-bottom: 24px;
+    padding-bottom: 0;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.projects .left {
+    width: 100%;
+    max-width: none;
+}
+
+.pill-select {
+    height: 38px;
+    /* Compact height */
+    border-width: 1.5px;
+    width: 100%;
+}
+
+.pill-select select {
+    font-size: 14px;
+}
+
+.icons {
+    flex-direction: row;
+    /* Horizontal icons */
+    gap: 8px;
+}
+
+.icon {
+    width: 38px;
+    height: 38px;
+    border-width: 1.5px;
+}
+
+/* ====== COMPACT LAYOUT ====== */
+body {
+    padding: 16px;
+    /* Reduced outer padding */
+}
+
+.frame {
+    padding: 24px 24px 32px;
+    border-radius: var(--radius-lg);
+}
+
+.topbar {
+    margin-bottom: 20px;
+}
+
+.topbar h1 {
+    font-size: 24px;
+    /* Smaller header */
+}
+
+.brand-logo {
+    height: 36px;
+}
+
+.tab-nav {
+    margin-bottom: 20px;
+}
+
+.tab-btn {
+    font-size: 14px;
+    padding: 6px 12px;
+}
+
+.rule {
+    margin: 14px 0 10px;
+}
+
+.pill-input {
+    height: 38px;
+}
+
+.pill-input.wide {
+    height: 42px;
+}
+
+/* ====== MODALS ====== */
+dialog {
+    border: none;
+    padding: 0;
+    background: transparent;
+    color: var(--txt);
+}
+
+dialog::backdrop {
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(2px);
+}
+
+.modal {
+    width: min(400px, 90vw);
+}
+
+.modal-content {
+    background: var(--panel);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    padding: 24px;
+    text-align: center;
+}
+
+.modal-content h3 {
+    margin: 0 0 12px;
+    color: var(--red);
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.modal-content p {
+    color: var(--muted);
+    margin: 0 0 24px;
+    line-height: 1.5;
+    font-size: 14px;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.btn-primary {
+    background: var(--green);
+    color: #000;
+    border: none;
+}
+
+.btn-primary.danger {
+    background: var(--red);
+    color: #fff;
+}
+
+.btn-text {
+    background: transparent;
+    border: none;
+    color: var(--muted);
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.btn-text:hover {
+    color: var(--txt);
+}/* ====== ROUND 2 FIXES ====== */
+
+/* 1. Resize Plus Button */
+.icon.plus.large {
+    width: 38px;
+    height: 38px;
+    /* Match standard icon size */
+    border-radius: 12px;
+    /* Match other icons */
+}
+
+/* 2. Text Wrapping & Sub-bullets */
+.item {
+    display: flex;
+    /* Ensure better alignment */
+    align-items: flex-start;
+    /* Align top for multi-line text */
+}
+
+.item .text {
+    flex: 1;
+    /* Take available width */
+    min-width: 0;
+    /* Allow flex shrinking */
+    white-space: pre-wrap;
+    /* Preserve whitespace for/sub-bullets */
+    word-break: break-word;
+    /* Wrap long words */
+    overflow-wrap: break-word;
+    margin-top: 2px;
+    /* Optical alignment with checkbox */
+    outline: none;
+    /* Remove focus ring */
+    padding: 2px 4px;
+    border-radius: 4px;
+}
+
+.item .text:focus {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* 3. Fluid Layout */
+.frame {
+    width: 100%;
+    max-width: 100%;
+    /* Allow expansion */
+    min-width: 200px;
+    /* Minimum constraint */
+    min-height: 50vh;
+    /* Allow shrinking height */
+}
+
+body {
+    /* Allow body to shrink/grow with panel */
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+/* Make inputs fluid */
+.pill-input.wide {
+    width: 100%;
+    max-width: 100%;
+}
+
+.adder {
+    width: 100%;
+}/* ====== ROUND 3: SCALING & LAYOUT ====== */
+
+/* 1. Logo Shrinking */
+.brand-logo {
+    max-width: 100%;
+    object-fit: contain;
+    /* Remove fixed width if present, or ensure it doesn't overflow */
+}
+
+header {
+    /* Ensure header allows shrinking */
+    overflow: hidden; 
+}
+
+/* 2. Full Width Notes */
+.notes-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.note-card {
+    width: 100%;
+    min-height: 80px;
+    /* Ensure no fixed widths that break flow */
+}
+
+/* 3. Global Scaling for Small Panels */
+@media (max-width: 350px) {
+    /* Scale down font sizes */
+    body {
+        font-size: 13px;
+        padding: 12px; /* Smaller padding */
+    }
+
+    .frame {
+        padding: 16px 16px 24px;
+    }
+
+    /* Scaling buttons and inputs */
+    .icon {
+        width: 30px; height: 30px; /* ~20% smaller than 38px */
+    }
+    .pill-select, .pill-input {
+        height: 30px;
+    }
+    .pill-input.wide {
+        height: 34px;
+    }
+    
+    .tab-btn {
+        padding: 4px 10px;
+        font-size: 12px;
+    }
+    
+    .btn-primary {
+        padding: 8px 16px; 
+        font-size: 13px;
+    }
+
+    h1, h2, h3 {
+        /* Reduce header sizes manually if they are fixed px */
+        transform-origin: left;
+        transform: scale(0.9); /* Easy way to shrink headers slightly */
+    }
+    
+    .text {
+        font-size: 13px;
+    }
+}
+/* ====== ROUND 4: AGGRESSIVE SHRINKING & NOTE AESTHETICS ====== */
+
+/* 1. Restore Note Aesthetics */
+.note-card {
+    /* Restore card look */
+    background: var(--surface);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: var(--radius-sm);
+    padding: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    position: relative;
+    /* For controls positioning */
+}
+
+.note-card textarea {
+    background: transparent;
+    border: none;
+    color: var(--txt);
+    width: 100%;
+    resize: none;
+    /* Auto-growth or fixed height, avoid manual resize handles if ugly */
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+    min-height: 60px;
+}
+
+/* 2. Aggressive Shrinking (Down to ~130px) */
+
+/* Base constraints relaxation */
+.frame {
+    min-width: 0;
+    /* Remove 200px constraint */
+}
+
+/* Media Query for Deep Shrink */
+@media (max-width: 250px) {
+    body {
+        padding: 8px;
+    }
+
+    .frame {
+        padding: 12px 8px 16px;
+    }
+
+    /* Shrink logo further */
+    .brand-logo {
+        height: auto;
+        max-height: 40px;
+        /* Limit height so it scales by width properly */
+    }
+
+    /* Controls get tiny */
+    .icon {
+        width: 24px;
+        height: 24px;
+        border-radius: 8px;
+    }
+
+    .pill-select,
+    .pill-input {
+        height: 26px;
+        font-size: 11px;
+    }
+
+    .pill-input.wide {
+        height: 30px;
+    }
+
+    .pill-select select {
+        font-size: 11px;
+    }
+
+    /* Typography */
+    .tab-btn {
+        font-size: 11px;
+        padding: 2px 8px;
+    }
+
+    h1 {
+        font-size: 18px;
+    }
+
+    h2 {
+        font-size: 14px;
+    }
+
+    .item .text {
+        font-size: 12px;
+    }
+
+    /* Notes Compact */
+    .note-card {
+        padding: 8px;
+    }
+
+    .note-card textarea {
+        font-size: 12px;
+    }
+}
+
+/* Extra Deep Shrink */
+@media (max-width: 150px) {
+
+    /* Hide some non-essential decorations or tighten further */
+    .icons {
+        gap: 4px;
+    }
+
+    .projects.global-projects {
+        flex-direction: column;
+        /* Stack controls if too narrow */
+        gap: 8px;
+    }
+
+    .tab-btn {
+        width: 100%;
+        /* Stack tabs? or keep minimal */
+    }
+}/* Notes specific overrides */
+
+/* Branded Delete Button for Notes */
+.note-card .controls {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+}
+
+.icon.delete-note-btn {
+    width: 28px;
+    height: 28px;
+    /* Smaller than main icons */
+    border-radius: 8px;
+    border-color: rgba(255, 75, 95, 0.4);
+    /* Subtler red border */
+}
+
+/* X Icon */
+.icon.cross::before,
+.icon.cross::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 14px;
+    height: 2px;
+    background: var(--red);
+}
+
+.icon.cross::before {
+    transform: rotate(45deg);
+}
+
+.icon.cross::after {
+    transform: rotate(-45deg);
+}
+
+.icon.delete-note-btn:hover {
+    border-color: var(--red);
+    background: rgba(255, 75, 95, 0.1);
+}/* ====== ROUND 5: NOTES REFINEMENTS ====== */
+
+/* 1. Delete Button Repositioning */
+.note-card {
+    /* Ensure overflow is visible so button can hang out */
+    overflow: visible;
+    margin-top: 14px;
+    /* Add top margin so the button doesn't hit the element above */
+}
+
+.note-card .controls {
+    /* Reset from previous absolute inside */
+    position: absolute;
+    top: -12px;
+    right: -4px;
+    z-index: 10;
+}
+
+.icon.delete-note-btn {
+    width: 20px;
+    height: 20px;
+    /* Smaller */
+    border-radius: 50%;
+    /* Circle looks nicer for floating action */
+    background: var(--panel);
+    /* Match bg to cover line behind it if any */
+    border: 1px solid var(--red);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon.cross::before,
+.icon.cross::after {
+    width: 10px;
+    height: 1.5px;
+    /* Smaller cross */
+    background: var(--red);
+}
+
+.icon.delete-note-btn:hover {
+    transform: scale(1.1);
+    background: var(--red);
+}
+
+.icon.delete-note-btn:hover .icon.cross::before,
+.icon.delete-note-btn:hover .icon.cross::after {
+    background: #fff;
+    /* White X on hover */
+}
+
+/* 2. Custom Scrollbar */
+.note-card textarea::-webkit-scrollbar {
+    width: 6px;
+    /* Thin */
+    height: 6px;
+}
+
+.note-card textarea::-webkit-scrollbar-track {
+    background: transparent;
+    /* Invisible track */
+}
+
+.note-card textarea::-webkit-scrollbar-thumb {
+    background: transparent;
+    /* Top-secret invisible thumb until hover */
+    border-radius: 4px;
+}
+
+/* Show thumb on hover of the textarea */
+.note-card textarea:hover::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15);
+    /* Subtle gray */
+}
+
+/* Active state */
+.note-card textarea::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+    /* Lighter on direct grab */
+}
+
+/* Corner */
+.note-card textarea::-webkit-scrollbar-corner {
+    background: transparent;
+}/* ====== ROUND 6: GLOBAL SCROLLBAR & EXTREME SCALING ====== */
+
+/* 1. Global Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: transparent;
+    /* Invisible by default if possible, or very subtle */
+    border-radius: 4px;
+}
+
+/* Show on hover of the window/body if possible, usually requires specific container hover 
+   For global scrollbar, we might want it always subtle or only visible when scrolling.
+   Standard "Auto-hide" mimics mobile, but harder in CSS only.
+   We'll make it the same as Notes: subtle transparent-ish, visible on hover. 
+*/
+body:hover::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+/* 2. Extreme Scaling (-45%) */
+/* Target very narrow panels */
+@media (max-width: 200px) {
+    body {
+        font-size: 10px;
+        /* ~60% of 16px */
+        padding: 4px;
+    }
+
+    .frame {
+        padding: 8px 6px 12px;
+        border-radius: 12px;
+    }
+
+    .topbar {
+        margin-bottom: 12px;
+    }
+
+    .rule {
+        margin: 10px 0;
+    }
+
+    .brand-logo {
+        max-height: 28px;
+    }
+
+    h1 {
+        font-size: 16px;
+    }
+
+    h2 {
+        font-size: 10px;
+    }
+
+    .tab-btn {
+        padding: 2px 6px;
+        font-size: 10px;
+    }
+
+    /* Inputs & Icons */
+    .icon {
+        width: 20px;
+        height: 20px;
+        border-width: 1px;
+    }
+
+    .icon.delete-note-btn {
+        width: 16px;
+        height: 16px;
+    }
+
+    .pill-select,
+    .pill-input {
+        height: 24px;
+        font-size: 10px;
+        border-width: 1px;
+        padding: 0 8px;
+    }
+
+    .pill-input.wide {
+        height: 28px;
+    }
+
+    /* Notes */
+    .note-card {
+        padding: 6px;
+        margin-top: 10px;
+    }
+
+    .note-card textarea {
+        font-size: 10px;
+        min-height: 40px;
+    }
+
+    .btn-primary {
+        font-size: 10px;
+        padding: 4px 10px;
+    }
+
+    /* Checklist */
+    .checkbox {
+        width: 14px;
+        height: 14px;
+    }
+
+    .item .text {
+        font-size: 10px;
+        padding-top: 2px;
+    }
+
+    .pill-delete {
+        font-size: 9px;
+        padding: 1px 4px;
+    }
+
+    .projects {
+        margin-bottom: 12px;
+        gap: 8px;
+    }
+}
+
+/* ====== CUSTOM SIZE ADJUSTMENTS ====== */
+
+/* 1. Make Project Control Icons Smaller (Rename, Delete, Add) */
+.projects .icon {
+    width: 28px;       /* Originally 38px */
+    height: 28px;      /* Originally 38px */
+    border-radius: 8px; /* Slightly tighter corners */
+}
+
+/* Adjust the internal shapes to fit the smaller buttons */
+.projects .icon.chevron::before {
+    /* The Triangle */
+    border-left-width: 7px;
+    border-right-width: 7px;
+    border-top-width: 10px;
+    transform: translateY(1px); /* Re-center vertically */
+}
+
+.projects .icon.oval::before {
+    /* The Pill Shape */
+    width: 16px;
+    height: 4px;
+}
+
+.projects .icon.plus::before,
+.projects .icon.plus::after {
+    /* The Plus Sign */
+    width: 14px;
+    height: 2px;
+}
+
+/* 2. Make Line Item Delete Button Smaller */
+.pill-delete {
+    height: 26px;        /* Originally 36px */
+    padding: 0 10px;     /* Reduce side spacing */
+    font-size: 11px;     /* Smaller text */
+    font-weight: 700;
+    line-height: 22px;   /* Vertically center the text */
+}
+/* ====== FUNCTIONALITY & SIZE UPDATES ====== */
+
+/* 1. Resize the large "Add Task" button */
+/* This targets the specific #addBtn to override the .large class */
+#addBtn.icon.large {
+    width: 28px;       /* Resize from 46px to 28px */
+    height: 28px;
+    border-radius: 8px;
+}
+
+/* Resize the plus sign inside it to fit */
+#addBtn.icon.large::before,
+#addBtn.icon.large::after {
+    width: 14px;
+    height: 2px;
+}
+
+/* 2. Make the Dropdown Arrow Functional */
+/* By removing pointer events, clicks on the arrow "fall through" 
+   to the actual <select> menu underneath it, triggering the dropdown. */
+.pill-select .caret {
+    pointer-events: none;
+}
+/* ====== FINAL UI TWEAKS ====== */
+
+/* 1. Remove the "LIST" title */
+/* This hides the <h2>LIST</h2> element inside the list section */
+.list h2 {
+    display: none;
+}
+
+/* 2. Responsive Logo Resizing */
+/* When the panel width gets very small (below 260px), shrink the logo */
+@media (max-width: 260px) {
+    .brand-logo {
+        height: 32px; /* Reduce from default 48px to 32px */
+    }
+}
+
+/* Optional: Even smaller for extremely narrow views */
+@media (max-width: 200px) {
+    .brand-logo {
+        height: 24px; 
+    }
+}

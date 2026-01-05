@@ -1,0 +1,8 @@
+HITAI_Extension/
+├── CSXS/
+│   └── manifest.xml
+├── css/
+│   └── style.css
+├── js/
+│   └── main.js
+└── index.html
